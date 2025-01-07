@@ -1,0 +1,10 @@
+To correct the issue, ensure that units within the `calc()` function are consistent.  One approach is to convert all values to a single unit:
+
+```css
+.element {
+  width: calc((50vw - 10px) / 2); /* Assuming vw is half of available width */ 
+  height: calc(Math.max(0, 0.5 * 100vh - 10)); /* Use Math.max to prevent negative height */
+}
+```
+
+This revised code converts the percentage to pixels (for this example, assuming that `vw` is half of available width, but the way you handle this part depends on your specific design). This provides consistency and avoids the nested-unit issues.  The `Math.max` function in the `height` calculation prevents the value from being negative, ensuring correct rendering.
