@@ -1,0 +1,12 @@
+The following CSS code snippet demonstrates an uncommon error involving the `calc()` function and nested units:
+
+```css
+.element {
+  width: calc(50% - 10px);
+  height: calc(50vh - 10px);
+}
+```
+
+This code appears correct at first glance. However, it can lead to unexpected results in certain scenarios, specifically when dealing with nested units.  The `calc()` function needs consistent units within the calculation.  Mixing percentages and pixels directly can result in inaccurate calculations.
+
+Another potential issue is the use of `vh` (viewport height).  If the viewport height is less than 20px, `calc(50vh - 10px)` will return a negative value, resulting in a `height` of `0` or a layout error in some browsers.
